@@ -51,6 +51,11 @@ public class Accueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
+        // Appel des fragments
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragAffiche, new FragmentTableSaisie()) .commit();
+
         // ANIMATION
         fadeOutEnlargeAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_enlarge);
         fadeOutEnlargeButton = findViewById(R.id.fadeOutEnlargeButton);
