@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -25,7 +26,7 @@ import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import java.lang.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +34,8 @@ import java.util.List;
 public class Accueil extends AppCompatActivity {
     Button fadeOutEnlargeButton;
     Animation fadeOutEnlargeAnimation;
-    private editText bv;
+    EditText bv1 =null ;
+    //EditText bv;
     private String TAG = Accueil.class.getSimpleName();
 
     private ProgressDialog pDialog;
@@ -64,13 +66,13 @@ public class Accueil extends AppCompatActivity {
         verbList = new ArrayList<Verb>();
 
         lv = (ListView) findViewById(R.id.list);
-
-        new GetVerbs().execute(); // méthode classe AsynTask
+        bv1 = (EditText)findViewById(R.id.editText);
+        //new GetVerbs().execute(); // méthode classe AsynTask
     }
 
     /**
      * Tache asynchrone
-     */
+
     private class GetVerbs extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -85,7 +87,7 @@ public class Accueil extends AppCompatActivity {
         }
     }
     @Override
-
+*/
     // appeler automatiquement après onPreExecute
     protected Void doInBackground(Void... arg0) {
 
@@ -112,7 +114,7 @@ public class Accueil extends AppCompatActivity {
                     String pp = c.getString("pp");
 
 
-                    Verb verb = new Verb(bv,preterit,pp);
+                    Verb verb = new Verb(bv1,preterit,pp);
 
                     verbList.add(verb);
                 }
