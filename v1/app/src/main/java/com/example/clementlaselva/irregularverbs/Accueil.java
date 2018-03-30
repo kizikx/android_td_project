@@ -76,7 +76,7 @@ public class Accueil extends AppCompatActivity {
     }
 
     /**
-     * Tache asynchrone
+     * Tache asynchrone*/
 
     private class GetVerbs extends AsyncTask<Void, Void, Void> {
 
@@ -92,9 +92,9 @@ public class Accueil extends AppCompatActivity {
         }
     }
     @Override
-*/
+
     // appeler automatiquement après onPreExecute
-    protected Void doInBackground(Void... arg0) {
+    protected Void doInBackground(Void...arg0) {
 
         for (int progress = 0; progress  < 1000000000; progress++){
             // Ne fait rien mais fait juste passer du temps
@@ -135,7 +135,7 @@ public class Accueil extends AppCompatActivity {
     }
 
     @Override
-    protected void onPostExecute(Void result) {
+    protected void onPostExecute(result) {
         super.onPostExecute(result);
 
         if (pDialog.isShowing())
@@ -153,4 +153,5 @@ public class Accueil extends AppCompatActivity {
 
     }
 
+    }
 }
