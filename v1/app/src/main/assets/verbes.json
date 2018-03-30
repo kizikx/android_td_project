@@ -1,88 +1,64 @@
 {
 	"verbes":[
 		{
-		"abide":
-			{
+			"bv":"abide",
 			"preterit":"abode",
 			"pp":"abode"
-			}
 		},
 		{
-		"arise":
-			{
+			"bv":"arise",
 			"preterit":"arose",
 			"pp":"arisen"
-			}
 		},
 		{
-		"awake":
-			{
+			"bv":"awake",
 			"preterit":"awoke",
 			"pp":"awoken"
-			}
 		},
 		{
-		"be":
-			{
+			"bv":"be",
 			"preterit":"was/were",
 			"pp":"been"
-			}
 		},
 		{
-		"bear":
-			{
+			"bv":"bear",
 			"preterit":"bore",
 			"pp":"borne/born"
-			}
 		},
 		{
-		"beat":
-			{
+			"bv":"beat",
 			"preterit":"beat",
 			"pp":"beaten"
-			}
 		},
 		{
-		"become":
-			{
+			"bv":"become",
 			"preterit":"became",
 			"pp":"become"
-			}
 		},
 		{
-		"beget":
-			{
+			"bv":"beget",
 			"preterit":"begat/begot",
 			"pp":"begotten"
-			}
 		},
 		{
-		"begin":
-			{
+			"bv":"begin",
 			"preterit":"began",
 			"pp":"begun"
-			}
 		},
 		{
-		"bend":
-			{
+			"bv":"bend",
 			"preterit":"bent",
 			"pp":"bent"
-			}
 		},
 		{
-		"bet":
-			{
+			"bv":"bet",
 			"preterit":"bet",
 			"pp":"bet"
-			}
 		},
 		{
-		"bid":
-			{
+			"bv":"bid"{
 			"preterit":"bid/bade",
 			"pp":"bid/bidden"
-			}
 		},
 		{
 		"bite":
