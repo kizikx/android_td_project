@@ -21,6 +21,7 @@ import java.util.List;
 public class FragmentTableAffiche extends Fragment {
     View rootView;
     int valeurTable;
+    String valeurVerbe;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class FragmentTableAffiche extends Fragment {
         if(b!=null)
         {
             valeurTable = getArguments().getInt("table");
+            valeurVerbe =  valeurVerbe.toString();
         }
     }
 
@@ -43,15 +45,16 @@ public class FragmentTableAffiche extends Fragment {
 
     public void afficherTable(){
         List<String> list = new ArrayList<String>();
-        int resu;
-        String s="";
-        for(int i=1;i<=20;i++)
-        {
-            resu=valeurTable*i;
-            s+= String.valueOf(i)+ " "+ "* " + String.valueOf(valeurTable)+" = "+String.valueOf(resu);
-            list.add(s);
-            s="";
-        }
+        String monV;
+        String partP="";
+        String pret="";
+        String affiche="";
+
+        monV=valeurVerbe;
+        partP+= ""; //Ajout du participe passé de monV par le json
+        pret += ""; //De même pour le preterit
+        affiche+="Verbe : " + monV + " PP : " + partP + " preterit : " + pret ;
+        list.add(affiche);
 
         ArrayAdapter<String> adapter;
         adapter = new ArrayAdapter<String>( getActivity(), android.R.layout.simple_list_item_1, list);

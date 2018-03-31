@@ -35,8 +35,6 @@ public class FragmentTableSaisie extends Fragment {
         final View rootView = inflater.inflate(R.layout.activity_accueil, container, false);
 
 
-
-
         final EditText valeur = (EditText) rootView.findViewById(R.id.editText);
 
 

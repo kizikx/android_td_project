@@ -52,9 +52,11 @@ public class Accueil extends AppCompatActivity {
         setContentView(R.layout.activity_accueil);
 
         // Appel des fragments
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null)
+        {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragAffiche, new FragmentTableSaisie()) .commit();
+        }
 
         // ANIMATION
         fadeOutEnlargeAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_enlarge);

@@ -13,10 +13,11 @@ public class Verb {
         return bv;
     }
 
-    public boolean getEstAnglais(){
+    public boolean getPreterit(){
         return preterit;
     }
-    public boolean getEstRegulier(){
+
+    public boolean getPp(){
         return pp;
     }
 
