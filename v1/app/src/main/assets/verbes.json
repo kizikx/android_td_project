@@ -56,30 +56,24 @@
 			"pp":"bet"
 		},
 		{
-			"bv":"bid"{
+			"bv":"bid",
 			"preterit":"bid/bade",
 			"pp":"bid/bidden"
 		},
 		{
-		"bite":
-			{
+			"bv":"bite",
 			"preterit":"bit",
 			"pp":"bitten"
-			}
 		},
 		{
-		"bleed":
-			{
+			"bv":"bleed",
 			"preterit":"bled",
 			"pp":"bled"
-			}
 		},
 		{
-		"blow":
-			{
+			"bv":"blow",
 			"preterit":"blew",
 			"pp":"blown"
-			}
 		},
 		{
 		"break":
