@@ -137,7 +137,7 @@ public class Accueil extends AppCompatActivity {
     }
 
     @Override
-    protected void onPostExecute(result) {
+    protected void onPostExecute(result){
         super.onPostExecute(result);
 
         if (pDialog.isShowing())
@@ -156,4 +156,4 @@ public class Accueil extends AppCompatActivity {
     }
 
     }
-}
+
