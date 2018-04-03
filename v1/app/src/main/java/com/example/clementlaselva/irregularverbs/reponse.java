@@ -126,21 +126,10 @@ public class reponse extends AppCompatActivity {
 
             List<String> liste = new ArrayList<String>();
 
-
-            /*for(int i= 0;i<verbList.size();i++){
-
-                if (saisie ==  (verbList.get(i).getBv())){
-
-                    liste.add(verbList.get(i).toString());
-
-                }
-               // liste.add(verbList.get(i).toString());
-
-            }*/
-
             for(Verb list : verbList) {
                 if (saisie.equals(list.getBv())) {
                     System.out.println(list.toString());
+                    liste.add(list.toString());
                 }
             }
 
