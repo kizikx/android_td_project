@@ -6,25 +6,28 @@ package com.example.clementlaselva.irregularverbs;
 
 public class Verb {
     private String bv;
-    private boolean preterit;
-    private boolean pp;
+    private String preterit;
+    private String pp;
 
     public String getBv(){
         return bv;
     }
 
-    public boolean getPreterit(){
+    public String getEstAnglais(){
         return preterit;
     }
-
-    public boolean getPp(){
+    public String getEstRegulier(){
         return pp;
     }
 
-    public Verb(String bv, boolean preterit, boolean pp){
+    public Verb(String bv, String preterit, String pp){
         this.bv=bv;
         this.preterit=preterit;
         this.pp=pp;
+    }
+    public String toString()
+    {
+        return "bv:" + bv + "preterit:" + preterit + "pp" + pp ;
     }
 
 }
