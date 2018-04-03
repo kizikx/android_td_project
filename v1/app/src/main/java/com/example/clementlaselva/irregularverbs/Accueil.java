@@ -20,7 +20,6 @@ public class Accueil extends AppCompatActivity {
     Button fadeOutEnlargeButton;
 
     Animation fadeOutEnlargeAnimation;
-    EditText bv1 =null ;
     private String TAG = Accueil.class.getSimpleName();
 
     private ProgressDialog pDialog;
@@ -32,7 +31,7 @@ public class Accueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-
+        final EditText saisie =  findViewById(R.id.editText);
         /*Appel des fragments
         if (savedInstanceState == null)
         {
@@ -54,13 +53,12 @@ public class Accueil extends AppCompatActivity {
 
         fadeOutEnlargeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(Accueil.this,reponse.class);
+                Intent intent = new Intent(Accueil.this , reponse.class);
+                intent.putExtra("saisie", "saisie");
                 startActivity(intent);
             }
         });
     }
-
-
 
 }
 

@@ -81,7 +81,7 @@ public class reponse extends AppCompatActivity {
 
 
             String jsonStr = sh.makeServiceCall(url);
-            Log.d("MainActivity",jsonStr);
+            //Log.d("MainActivity",jsonStr);
 
 
             if (jsonStr != null) {
@@ -104,7 +104,7 @@ public class reponse extends AppCompatActivity {
                         Verb verb = new Verb(bv,preterit,pp);
 
                         verbList.add(verb);
-                        Log.d("dbnd",verbList.toString());
+
                     }
                 } catch (final JSONException e) {
                     Log.e(TAG, "Erreur Json: " + e.getMessage());
@@ -127,8 +127,23 @@ public class reponse extends AppCompatActivity {
             List<String> liste = new ArrayList<String>();
 
 
-            for(int i= 0;i<verbList.size();i++)
-                liste.add(verbList.get(i).toString());
+            /*for(int i= 0;i<verbList.size();i++){
+
+                if (saisie ==  (verbList.get(i).getBv())){
+
+                    liste.add(verbList.get(i).toString());
+
+                }
+               // liste.add(verbList.get(i).toString());
+
+            }*/
+
+            for(Verb list : verbList) {
+                if (saisie.equals(list.getBv())) {
+                    System.out.println(list.toString());
+                }
+            }
+
 
 
 
