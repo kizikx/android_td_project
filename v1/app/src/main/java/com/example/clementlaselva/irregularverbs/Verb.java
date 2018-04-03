@@ -27,7 +27,7 @@ public class Verb {
     }
     public String toString()
     {
-        return "bv:" + bv + "preterit:" + preterit + "pp" + pp ;
+        return "bv:" + " " + " " + bv + " " + "preterit:" + " " + preterit + " " + "pp" + " " + pp ;
     }
 
 }
