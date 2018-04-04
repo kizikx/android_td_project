@@ -15,6 +15,9 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import java.lang.*;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 
 public class Accueil extends AppCompatActivity {
@@ -25,6 +28,7 @@ public class Accueil extends AppCompatActivity {
 
     private ProgressDialog pDialog;
     private ListView lv;
+    private AdView mAdView;
 
 
     @Override
@@ -65,6 +69,13 @@ public class Accueil extends AppCompatActivity {
 
             }
         });
+       // ca-app-pub-7895420914310904~3675894786
+       // ca-app-pub-7895420914310904/4354906856
+        // test ca-app-pub-39402560999425446300978111
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544~6300978111");
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
 }
