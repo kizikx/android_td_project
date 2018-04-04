@@ -7,6 +7,7 @@ package com.example.clementlaselva.irregularverbs;
  */
 
         import android.app.ProgressDialog;
+        import android.content.Context;
         import android.database.DataSetObserver;
         import android.os.AsyncTask;
         import android.os.Bundle;
@@ -14,6 +15,8 @@ package com.example.clementlaselva.irregularverbs;
         import android.util.Log;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.view.inputmethod.InputMethodManager;
+        import android.view.inputmethod.InputMethodSubtype;
         import android.widget.ArrayAdapter;
         import android.widget.ListAdapter;
         import android.widget.ListView;
@@ -39,6 +42,7 @@ public class reponse extends AppCompatActivity {
     private static String url = "http://www.clement-laselva.com/android/assets/verbes.json";
 
     private List<Verb> verbList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +141,7 @@ public class reponse extends AppCompatActivity {
 
            /**/
             for(Verb list : verbList) {
-                if (saisie.equals(list.getBv())) {
+                if (saisie.equals(list.getBv()) ) {
                     System.out.println(list.toString());
                     liste.add(list.toString());
                 }
@@ -151,10 +155,6 @@ public class reponse extends AppCompatActivity {
                     }
                 }
             }
-
-
-
-
 
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(reponse.this,android.R.layout.simple_list_item_1, liste);
