@@ -28,7 +28,8 @@ package com.example.clementlaselva.irregularverbs;
         import java.util.List;
 
 public class reponse extends AppCompatActivity {
-    String saisie = "be";
+    private String saisie = null;
+
     private String TAG =reponse.class.getSimpleName();
 
     private ProgressDialog pDialog;
@@ -49,6 +50,14 @@ public class reponse extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.list);
 
         new GetVerbs().execute(); // méthode classe AsynTask
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            saisie = getIntent().getStringExtra("saisie");
+        }
+        else {
+            saisie = "vide";
+        }
+        System.out.println(saisie);
     }
 
     /**
@@ -126,12 +135,24 @@ public class reponse extends AppCompatActivity {
 
             List<String> liste = new ArrayList<String>();
 
+           /**/
             for(Verb list : verbList) {
                 if (saisie.equals(list.getBv())) {
                     System.out.println(list.toString());
                     liste.add(list.toString());
                 }
             }
+            if((liste.isEmpty()) && (saisie != "vide")){
+                for(Verb list : verbList) {
+                    if(!saisie.equals(list.getBv())){
+                        System.out.println(saisie + "ed");
+                        liste.add(saisie + "ed");
+                        break;
+                    }
+                }
+            }
+
+
 
 
 
