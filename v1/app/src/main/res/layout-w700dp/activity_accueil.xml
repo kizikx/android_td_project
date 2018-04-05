@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.clementlaselva.irregularverbs.Accueil"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <FrameLayout
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="match_parent"
         android:id="@+id/fragAcceuil">
         <TextView
@@ -67,5 +64,18 @@
         </com.google.android.gms.ads.AdView>
     </FrameLayout>
 
+    <FrameLayout
+        android:id="@+id/fragAffiche"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/fragAcceuil">
 
-</LinearLayout>
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20" />
+    </FrameLayout>
+
+</RelativeLayout>

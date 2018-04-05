@@ -1,27 +1,19 @@
 package com.example.clementlaselva.irregularverbs;
 
-
-
-/**
- * Created by clementlaselva on 19/03/2018.
- */
-
+import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.database.DataSetObserver;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.view.inputmethod.InputMethodSubtype;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,41 +22,49 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class reponse extends AppCompatActivity {
+/**
+ * Created by LOUIS on 04/04/2018.
+ */
+
+public class ReponseFrag extends Fragment {
+
+    String s;
 
     private String saisie = null;
+
     private String TAG =reponse.class.getSimpleName();
+
     private ProgressDialog pDialog;
     private ListView lv;
+
 
     private static String url = "http://www.clement-laselva.com/android/assets/verbes.json";
 
     private List<Verb> verbList;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity2);
+    @Override //Création de la vue du fragement
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        /*Bundle b = this.getArguments();
+        if(b != null){
+            s = b.getString("arg");
+            System.out.println(s);
+        }*/
 
-        //Appel du fragement
-        getFragmentManager().beginTransaction().add(R.id.fragAffiche, new ReponseFrag()).commit();
-
-        verbList = new ArrayList<Verb>();
-        lv = (ListView) findViewById(R.id.list);
-
-        new GetVerbs().execute(); // méthode classe AsynTask
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            saisie = getIntent().getStringExtra("saisie");
-        }
-        else {
-            saisie = "vide";
-        }
-        System.out.println(saisie);
+        return inflater.inflate(R.layout.activity2, container, false);
     }
 
-    //Tache asynchrone
-    private class GetVerbs extends AsyncTask<Void, Void, Void> {
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
+        super.onViewCreated(view, savedInstanceState);
+
+    }
+
+    @Override //Destrucion du frag
+    public void onDestroy(){
+        super.onDestroy();
+    }
+
+   /* private class GetVerbs extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -77,16 +77,22 @@ public class reponse extends AppCompatActivity {
 
         }
 
-        @Override // appeler automatiquement après onPreExecute
+        @Override
+
+        // appeler automatiquement après onPreExecute
         protected Void doInBackground(Void... arg0) {
 
             for (int progress = 0; progress  < 1000000000; progress++){
                 // Ne fait rien mais fait juste passer du temps
             }
 
+
             HttpHandler sh = new HttpHandler();
+
+
             String jsonStr = sh.makeServiceCall(url);
             //Log.d("MainActivity",jsonStr);
+
 
             if (jsonStr != null) {
                 try {
@@ -102,18 +108,22 @@ public class reponse extends AppCompatActivity {
                         //JSONObject coordonnes = geometry.getString("coordinates");
                         String pp = c.getString("pp");
 
+
                         // String coordinates = geometry.getString("coordinates");
 
                         Verb verb = new Verb(bv,preterit,pp);
 
                         verbList.add(verb);
+
                     }
                 } catch (final JSONException e) {
                     Log.e(TAG, "Erreur Json: " + e.getMessage());
+
                 }
             } else {
                 Log.e(TAG, "Pas de connexion.");
             }
+
             return null;
         }
 
@@ -126,6 +136,8 @@ public class reponse extends AppCompatActivity {
 
             List<String> liste = new ArrayList<String>();
 
+           */
+   /*
             for(Verb list : verbList) {
                 if (saisie.equals(list.getBv()) ) {
                     System.out.println(list.toString());
@@ -142,8 +154,12 @@ public class reponse extends AppCompatActivity {
                 }
             }
 
+
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(reponse.this,android.R.layout.simple_list_item_1, liste);
+
             lv.setAdapter(adapter);
+
         }
-    }
+
+    }*/
 }

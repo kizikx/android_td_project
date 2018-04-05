@@ -14,6 +14,10 @@ import android.app.ProgressDialog;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
+
 import java.lang.*;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.AdRequest;
@@ -35,14 +39,21 @@ public class Accueil extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
+        //Appel du fragement
+        getFragmentManager().beginTransaction().add(R.id.fragAcceuil, new AccueilFrag()).commit();
 
-        final EditText saisie =  findViewById(R.id.editText);
-        /*Appel des fragments
-        if (savedInstanceState == null)
-        {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragAffiche, new FragmentTableSaisie()) .commit();
-        }*/
+
+
+        // Verbe à conjuger
+        final EditText saisie = findViewById(R.id.editText);
+       /* String maSaisie = saisie.toString();
+
+        Bundle b = new Bundle();
+        b.putString("arg", maSaisie);
+
+        ReponseFrag reponseFrag = new ReponseFrag();
+        reponseFrag.setArguments(b);
+        getFragmentManager().beginTransaction().replace(R.id.fragAffiche, reponseFrag);*/
 
         // ANIMATION
         fadeOutEnlargeAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_enlarge);
@@ -58,19 +69,27 @@ public class Accueil extends AppCompatActivity {
 
         fadeOutEnlargeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if( TextUtils.isEmpty(saisie.getText())){
-                    saisie.setError( "Entrer un verbe");
-                }
-                else{
-                    Intent intent = new Intent(Accueil.this , reponse.class);
-                    intent.putExtra("saisie", saisie.getText().toString());
-                    startActivity(intent);
+                if (TextUtils.isEmpty(saisie.getText())) {
+                    saisie.setError("Entrer un verbe");
+                } else {
+                    if (findViewById(R.id.fragAffiche) != null) {
+                        ReponseFrag reponseFrag = new ReponseFrag();
+                        getFragmentManager().beginTransaction().replace(R.id.fragAffiche, reponseFrag).commit();
+
+                    } else {
+
+                        Intent intent = new Intent(Accueil.this, reponse.class);
+                        intent.putExtra("saisie", saisie.getText().toString());
+                        startActivity(intent);
+                    }
                 }
 
             }
         });
-       // ca-app-pub-7895420914310904~3675894786
-       // ca-app-pub-7895420914310904/4354906856
+
+        // Ajout des publicité pour la technologie non vue
+        // ca-app-pub-7895420914310904~3675894786
+        // ca-app-pub-7895420914310904/4354906856
         // test ca-app-pub-39402560999425446300978111
         MobileAds.initialize(this, "ca-app-pub-3940256099942544~6300978111");
         mAdView = findViewById(R.id.adView);
@@ -79,4 +98,6 @@ public class Accueil extends AppCompatActivity {
     }
 
 }
+
+
 
